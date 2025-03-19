@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelRim - Coches</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="coche.css">
+
+    <link rel="icon" href="logo.png">
+</head>
+
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#"><img src="logorojo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="vuelos">Vuelos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="hoteles">Hoteles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="coche">Coche</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="carrito">
+                        <img src="carrito.png" alt="Carrito de compras" width="24" height="24">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/logout}">Desconectarse</a>
+                </li>
+                <li class="nav-item" id="admin" style="display: none">
+                    <a class="nav-link" href="users">Usuarios</a>
+                </li>
+                <li class="nav-item" id="admin2" style="display: none">
+                    <a class="nav-link" href="editarVuelos">Editar Vuelos</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <h1 class="text-center"><br>Buscador de Coches</h1>
+    <br>
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="fechaInicio">Fecha de inicio:</label>
+                <input type="date" class="form-control" id="fechaInicio" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="fechaFin">Fecha de devolución:</label>
+                <input type="date" class="form-control" id="fechaFin" required>
+            </div>
+        </div>
+    </form>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="coches\audi.png" class="card-img-top" alt="coche1">
+                    <div class="card-body">
+                        <h5 class="card-title">Audi A3</h5>
+                        <p class="card-text">Compacto, 5 puertas, Automático, A/C</p>
+                        <p class="card-text price">Precio: $50/día</p>
+                        <a href="#" class="btn btn-primary" id="reservarCoche1"  data-price="50" data-name="Audi A3" data-image="coches\audi.png" onclick="reservarCoche(event, this)">Reservar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="coches\toyota.png" class="card-img-top" alt="coche2">
+                    <div class="card-body">
+                        <h5 class="card-title">Toyota Corolla</h5>
+                        <p class="card-text">Sedán, 4 puertas, Automático, A/C</p>
+                        <p class="card-text price">Precio: $45/día</p>
+                        <a href="#" class="btn btn-primary" id="reservarCoche2" data-price="45" data-name="Toyota Corolla" data-image="coches\toyota.png" onclick="reservarCoche(event, this)">Reservar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="coches\ford.png" class="card-img-top" alt="coche3">
+                    <div class="card-body">
+                        <h5 class="card-title">Ford Mustang</h5>
+                        <p class="card-text">Deportivo, 2 puertas, Automático, A/C</p>
+                        <p class="card-text price">Precio: $70/día</p>
+                        <a href="#" class="btn btn-primary" id="reservarCoche3" data-price="70" data-name="Ford Mustang" data-image="coches\ford.png"  onclick="reservarCoche(event, this)">Reservar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="coches\bmw.png" class="card-img-top" alt="coche4">
+                    <div class="card-body">
+                        <h5 class="card-title">BMW X5</h5>
+                        <p class="card-text">SUV, 5 puertas, Automático, A/C</p>
+                        <p class="card-text price">Precio: $80/día</p>
+                        <a href="#" class="btn btn-primary" id="reservarCoche4" data-price="80" data-name="BMW X5" data-image="coches\bmw.png"  onclick="reservarCoche(event, this)">Reservar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="coches\golf.png" class="card-img-top" alt="coche5">
+                    <div class="card-body">
+                        <h5 class="card-title">Volkswagen Golf</h5>
+                        <p class="card-text">Hatchback, 5 puertas, Manual, A/C</p>
+                        <p class="card-text price">Precio: $40/día</p>
+                        <a href="#" class="btn btn-primary" id="reservarCoche5" data-price="40" data-name="Volkswagen Golf" data-image="coches\golf.png"  onclick="reservarCoche(event, this)">Reservar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="coches\honda.png" class="card-img-top" alt="coche6">
+                    <div class="card-body">
+                        <h5 class="card-title">Honda CR-V</h5>
+                        <p class="card-text">SUV, 5 puertas, Automático, A/C</p>
+                        <p class="card-text price">Precio: $60/día</p>
+                        <a href="#" class="btn btn-primary" id="reservarCoche6" data-price="60"  data-name="Honda CR-V" data-image="coches\honda.png" onclick="reservarCoche(event, this)">Reservar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="coches\mercedes.png" class="card-img-top" alt="coche7">
+                    <div class="card-body">
+                        <h5 class="card-title">Mercedes-Benz C-Class</h5>
+                        <p class="card-text">Sedán, 4 puertas, Automático, A/C</p>
+                        <p class="card-text price">Precio: $75/día</p>
+                        <a href="#" class="btn btn-primary" id="reservarCoche7" data-price="75" onclick="reservarCoche(event, this)">Reservar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="coches\nissan.png" class="card-img-top" alt="coche8">
+                    <div class="card-body">
+                        <h5 class="card-title">Nissan Qashqai</h5>
+                        <p class="card-text">SUV, 5 puertas, Manual, A/C</p>
+                        <p class="card-text price">Precio: $55/día</p>
+                        <a href="#" class="btn btn-primary" id="reservarCoche8" data-price="55"  data-name="Nissan Qashqai" data-image="coches\nissan.png" onclick="reservarCoche(event, this)">Reservar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="coches\mazda.png" class="card-img-top" alt="coche9">
+                    <div class="card-body">
+                        <h5 class="card-title">Mazda MX-5</h5>
+                        <p class="card-text">Descapotable, 2 puertas, Manual, A/C</p>
+                        <p class="card-text price">Precio: $65/día</p>
+                        <a href="#" class="btn btn-primary" id="reservarCoche9" data-price="65"  data-name="Mazda MX-5" data-image="coches\mazda.png" onclick="reservarCoche(event, this)">Reservar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="coches\kia.png" class="card-img-top" alt="coche10">
+                    <div class="card-body">
+                        <h5 class="card-title">Kia Sportage</h5>
+                        <p class="card-text">SUV, 5 puertas, Automático, A/C</p>
+                        <p class="card-text price">Precio: $58/día</p>
+                        <a href="#" class="btn btn-primary" id="reservarCoche10" data-price="58" data-name="Kia Sportage" data-image="coches\kia.png" onclick="reservarCoche(event, this)">Reservar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="coches\hyundai.png" class="card-img-top" alt="coche11">
+                    <div class="card-body">
+                        <h5 class="card-title">Hyundai Elantra</h5>
+                        <p class="card-text">Sedán, 4 puertas, Automático,
+                        <p class="card-text">Sedán, 4 puertas, Automático, A/C</p>
+                        <p class="card-text price">Precio: $48/día</p>
+                        <a href="#" class="btn btn-primary" id="reservarCoche11" data-price="48" data-name="Hyundai Elantra" data-image="coches\hyundai.png" onclick="reservarCoche(event, this)">Reservar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="coches\chevrolet.png" class="card-img-top" alt="coche12">
+                    <div class="card-body">
+                        <h5 class="card-title">Chevrolet Spark</h5>
+                        <p class="card-text">Compacto, 5 puertas, Manual, A/C</p>
+                        <p class="card-text price">Precio: $35/día</p>
+                        <a href="#" class="btn btn-primary" id="reservarCoche12" data-price="35" data-name="Chevrolet Spark" data-image="coches\chevrolet.png" onclick="reservarCoche(event, this)">Reservar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="coche.js"></script>
+    <script src="admin.js"></script>
+
+
+</body>
+
+</html>
+

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelRim</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="index_css.css">
+    <link rel="stylesheet" href="navbar.css">
+
+    <link rel="icon"href="logo.png">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="index.html"><img src="logorojo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="vuelos">Vuelos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="hoteles">Hoteles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="coche">Coche</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="carrito">
+                        <img src="carrito.png" alt="Carrito de compras" width="24" height="24">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/logout}">Desconectarse</a>
+                </li>
+                <li class="nav-item" id="admin" style="display: none">
+                    <a class="nav-link" href="users">Usuarios</a>
+                </li>
+                <li class="nav-item" id="admin2" style="display: none">
+                    <a class="nav-link" href="editarVuelos">Editar Vuelos</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-center">
+                <img src="logo.png" alt="Logo de TravelRim" height="400px">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p>Con TravelRim, encuentra los vuelos más baratos a cualquier destino del mundo! Reserva tus vuelos en línea de manera fácil y rápida.</p>
+            </div>
+        </div>
+    </div>
+    
+    <section class="container mt-5">
+        <h2>Destinos Paradisiacos</h2>
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top"
+                        src="https://a.cdn-hotels.com/gdcs/production88/d1205/9bd85b85-3eb0-45b3-8f13-35ab0355dff0.jpg?impolicy=fcrop&w=800&h=533&q=medium"
+                        alt="Mallorca">
+                    <div class="card-body">
+                        <h5 class="card-title">Mallorca</h5>
+                        <p class="card-text">Descubre la belleza natural de esta isla  con aguas cristalinas y
+                            arena blanca. Reserva ahora tus vacaciones en la playa.</p>
+                        <a href="vuelos" class="btn btn-primary">Reservar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="https://www.intermundial.es/blog/wp-content/uploads/2019/03/Consejos-para-viajar-a-Maldivas-y-disfrutar-de-verdad-1200x900.jpg"
+                        alt="Maldivas">
+                    <div class="card-body">
+                        <h5 class="card-title">Maldivas</h5>
+                        <p class="card-text">Disfruta de unas vacaciones inolvidables en estas hermosas islas con playas
+                            de ensueño y exuberante vegetación. ¡Reserva ya!</p>
+                        <a href="vuelos" class="btn btn-primary">Reservar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top"
+                        src="https://media.gq-magazine.co.uk/photos/5d138f50976fa31476f39436/master/pass/marrakech-gq-9oct18_istock_b.jpg"
+                        alt="Marrakech">
+                    <div class="card-body">
+                        <h5 class="card-title">Marrakech</h5>
+                        <p class="card-text">Marrakech, una ciudad magica, conocida por su vibrante vida nocturna y sus aromas exoticos, hogar de hermosos jardinas y palacios historicos, ven a conocerla!</p>
+                        <a href="vuelos" class="btn btn-primary">Reservar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="admin.js"></script>
+
+
+</body>
+
+</html>

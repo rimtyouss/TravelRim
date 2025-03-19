@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Búsqueda de vuelos - TravelRim</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+          integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+          crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+          integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+          crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+          integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+          crossorigin="anonymous"></script>
+
+  <link rel="icon" href="logo.png">
+
+  <link rel="stylesheet" href="vuelos_css.css">
+  <link rel="stylesheet" href="navbar.css">
+
+
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg">
+  <a class="navbar-brand" href="#"><img src="logorojo.png"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="index">Inicio</a>
+      </li>
+      <li class="nav-item" id="admin" style="display: none">
+        <a class="nav-link" href="users">Usuarios</a>
+      </li>
+      <li class="nav-item" id="admin2" style="display: none">
+        <a class="nav-link" href="editarVuelos">Editar Vuelos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" th:href="@{/logout}">Desconectarse</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <div class="row col-md-10">
+    <br> <br>
+    <h2> Lista de usuarios registrados en TravelRim.com </h2>
+  </div>
+  <table class="table table-bordered table-hover">
+    <thead class="table-dark">
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each = "user : ${users}">
+      <td th:text = "${user.firstName}"></td>
+      <td th:text = "${user.lastName}"></td>
+      <td th:text = "${user.email}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div class="container">
+  <div class="row col-md-10">
+    <h2>Reservas pendientes</h2>
+  </div>
+  <table id="reservas"></table>
+
+</div>
+
+<script src="users.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"
+        integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/"
+        crossorigin="anonymous">
+</script>
+
+<script src="admin.js"></script>
+
+</body>
+</html>

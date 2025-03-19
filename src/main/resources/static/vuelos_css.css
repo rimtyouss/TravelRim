@@ -1,0 +1,12 @@
+.form-inline label {
+      margin-right: 10px;
+    }
+
+
+ .cuadrado {
+      background-color: #ffdb58;
+      color: black;
+      display: inline-block;
+      padding: 20px;
+      border-radius: 5px;
+    }

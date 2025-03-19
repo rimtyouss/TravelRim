@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelRim - Carrito</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="carrito.css">
+
+    <link rel="icon" href="logo.png">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#"><img src="logorojo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="vuelos">Vuelos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="hoteles">Hoteles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="coche">Coche</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="carrito">
+                        <img src="carrito.png" alt="Carrito de compras" width="24" height="24">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/logout}">Desconectarse</a>
+                </li>
+                <li class="nav-item" id="admin" style="display: none">
+                    <a class="nav-link" href="users">Usuarios</a>
+                </li>
+                <li class="nav-item" id="admin2" style="display: none">
+                    <a class="nav-link" href="editarVuelos">Editar Vuelos</a>
+                </li>
+
+            </ul>
+        </div>
+
+    </nav>
+    <main>
+        <div class="container">
+            <h1 class="text-center mt-4">Carrito de compras</h1>
+            <div class="table-responsive mt-4">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>Fechas</th>
+                            <th>Subtotal</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+                    <tr th:each="reserva : ${reservas}">
+                        <td th:text="${reserva.vueloReservado}"></td>
+                        <td th:text="${reserva.hotelReservado}"></td>
+                        <td th:text="${reserva.cocheReservado}"></td>
+                        <td th:text="${reserva.precioTotalReserva}"></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="index" class="btn btn-primary">Continuar comprando</a>
+                </div>
+
+                <div class="col-md-6 text-right">
+                    <p>Total: <span id="precioTotal">$250.00</span></p>
+                    <button id="guardar-carrito" class="btn btn-primary">Guardar Carrito</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container text-center py-3">
+            <p>&copy; 2023 TravelRim. Todos los derechos reservados.</p>
+        </div>
+
+        
+    </footer>
+    <script src="admin.js"></script>
+    <script src="carrito.js"></script>
+    <script src="coche.js"></script>
+    <script src="vuelos.js"></script>
+
+    </body>
+    </html>
