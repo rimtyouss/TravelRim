@@ -1,7 +1,7 @@
 # TravelRim
 
 
-<img width="360" alt="image" src="https://github.com/user-attachments/assets/4a464d7e-2427-497d-8053-a7310c7d1b64" />
+                           <img width="360" alt="image" src="https://github.com/user-attachments/assets/4a464d7e-2427-497d-8053-a7310c7d1b64" />
 
 
 El proyecto consiste en la implementación de una página web de reserva de viajes,
