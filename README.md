@@ -42,7 +42,7 @@ La aplicación web se compone de 9 vistas:
 
 # Comportamiento
 
-1. Se registra el usuario
+## 1. Se registra el usuario
    
 El usuario se registra a través de un formulario HTML construida usando Thymeleaf, en “registro.html”. Cuando se envia el formulario, los datos se envían al servidor en una petición HTTP POST al endepoint “/registro/save”, guardando el usuario en la base de datos.
 
@@ -53,13 +53,13 @@ Se crea su usuario en la tabla:
 <img width="651" alt="image" src="https://github.com/user-attachments/assets/f5aa727e-3de0-4785-a02c-67e616366c16" />
 
 
-2. Inicia sesión
+## 2. Inicia sesión
    
 El usuario inicia sesión a través de un formulario HTML en el archivo inicio.html. Cuando se envía el formulario, los datos se envían al servidor en una petición HTTP POST al endpoint “/inicio”. En el servidor, los datos se utilizan para buscar el usuario en la base de datos y verificar la contraseña. Si los datos son correctos, el servidor establece una sesión para el usuario. El código en “SpringSecurity.java” es el que configura la seguridad de la aplicación. Esto incluye la configuración de qué endpoints son accesibles a que usuarios y cuáles requieren autenticación. Además, se define cómo se manejan el inicio de sesión y el cierre de sesión.
 
   <img width="617" alt="image" src="https://github.com/user-attachments/assets/b3819c1a-3ab8-44e1-a7ec-d24c3f280f9a" />
 
-3. Elige un vuelo, un hotel, un coche
+## 3. Elige un vuelo, un hotel, un coche
 
 -- Vuelos
 
@@ -95,7 +95,7 @@ También se guarda en el “local storage” la reserva del coche, para luego po
 
   <img width="627" alt="image" src="https://github.com/user-attachments/assets/d3537fb7-25f8-4074-b94b-bfc4b9eada62" />
 
-4. Carrito de compras
+## 4. Carrito de compras
 
 En el carrito de compras, podemos ver todas las reservas que ha hecho el usuario y el precio total:
 
@@ -107,7 +107,7 @@ Al guardar carrito, se añade la reserva a la base de datos, con el email del us
 
   <img width="695" alt="image" src="https://github.com/user-attachments/assets/b308ddbb-9837-405d-9473-1dfb600091ce" />
 
-5. Se desconecta el usuario y se conecta el administrador
+## 5. Se desconecta el usuario y se conecta el administrador
 
 Al administrador, le aparece una página que no les aparecen a los demás usuarios, “Usuarios”, donde puede ver los usuarios registrados y procesar las reservas que han sido guardadas. Esto se hace realizando una petición GET a través del endpoint “/usuario_actual“para obtener el email del usuario actual. Si el email es igual a "admin@gmail.com", se muestra la página de Usuarios. Esto permite que solo el usuario administrador tenga acceso a la página de procesamiento de reservas.
 
