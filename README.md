@@ -61,7 +61,7 @@ El usuario inicia sesión a través de un formulario HTML en el archivo inicio.h
 
 3. Elige un vuelo, un hotel, un coche
 
-# Vuelos
+-- Vuelos
 
 El usuario puede buscar vuelos proporcionando diferentes criterios, como origen, destino, fecha de ida y fecha de vuelta. Cuando el usuario envía el formulario, se ejecuta la función buscarVuelos() en JavaScript. La función buscarVuelos() realiza una petición HTTP GET con los parámetros de búsqueda y obtiene los vuelos disponibles. Luego, los vuelos se muestran en una tabla en la página. Cuando el usuario hace clic en el botón "Reservar vuelo" en la tabla, se ejecuta la función guardarVueloReservado(). Esta función guarda los detalles del vuelo seleccionado en el almacenamiento local (localStorage) para su uso posterior en el carrito.
 
@@ -72,7 +72,7 @@ Elegimos el primer vuelo de Madrid a Barcelona.
   <img width="631" alt="image" src="https://github.com/user-attachments/assets/efb18543-f898-4d92-955c-cdf4c3fafebb" />
 
 
-# Hoteles
+-- Hoteles
 
 Elegimos el primer hotel: 
 Para obtener los diferentes hoteles, se hace un fetch para obtener al archivo JSON “hotels.json” que contiene la información de los hoteles. 
@@ -84,7 +84,7 @@ Luego, los hoteles se muestran en una tabla en la página web. Cuando el usuario
 
 “/hoteles/reservar” en el servidor para guardar la reserva en la base de datos.
 
-# Coches
+-- Coches
 
 Cuando se pulsa en el botón de reservar, se envía una petición HTTP POST al endpoint “/coche/reservarCoche” con los datos de la reserva. Estos datos se utilizan para crear un nuevo registro de reserva en la base de datos.
   <img width="557" alt="image" src="https://github.com/user-attachments/assets/35c3f7b9-3d91-4d72-be34-6f2f6f021097" />
@@ -97,8 +97,7 @@ También se guarda en el “local storage” la reserva del coche, para luego po
 
 4. Carrito de compras
 
-En el carrito de compras, podemos ver todas las reservas que ha hecho el usuario y
-el precio total:
+En el carrito de compras, podemos ver todas las reservas que ha hecho el usuario y el precio total:
 
 Las funciones agregarCocheReservadoATabla(), agregarVueloReservadoATabla() y agregarHotelReservadoATabla() se utilizan para añadir los elementos reservados previamente al carrito, recuperando la información desde el almacenamiento local (localStorage).
 
